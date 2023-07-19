@@ -10,12 +10,15 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: adrien
     volumes:
-      - data:/var/lib/mysql
+      - ./mysql_volume:/var/lib/mysql
 
-  adminer:
+
+  phpmyadmin:
     image: phpmyadmin:latest
     ports:
       - 8080:80
+    environment:
+      - PMA_ARBITRARY=1
 
 volumes:
   data:
